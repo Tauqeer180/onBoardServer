@@ -6,8 +6,10 @@ let mongoose = require("mongoose")
 let CISchema = require("../../models/CI");
 
 // CREATE CI
-router.route("/ci").post((req, res, next) => {
+router.post("/ci",(req, res, next) => {
   // let obj = {name : 'hello world'};
+  console.log('log from CI API');
+  console.log(req);
   let obj = new CISchema(req.body);
   obj
     .save()
@@ -22,6 +24,27 @@ router.route("/ci").post((req, res, next) => {
       res.status(400).send("there is error in saving");
     });
 });
+
+
+
+// router.route("/ci").post((req, res, next) => {
+//   // let obj = {name : 'hello world'};
+//   console.log('log from CI API');
+//   console.log(req);
+//   let obj = new CISchema(req.body);
+//   obj
+//     .save()
+
+//     .then((obj) => {
+//       console.log(req.body);
+//       console.log(obj);
+
+//       res.status(200).json(obj);
+//     })
+//     .catch((err) => {
+//       res.status(400).send("there is error in saving");
+//     });
+// });
 
 // READ CIs
 router.get("/ci", (req, res) => {
