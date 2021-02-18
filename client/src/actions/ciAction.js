@@ -6,7 +6,7 @@ export const Create = (obj) => (dipatch) => {
       name: obj.tpi_rcName,
     })
     .then((res) => {
-    //   console.log(res.data._id)
+      //   console.log(res.data._id)
       dipatch({
         type: 'CREATE_CI',
         payload: res.data,
@@ -15,17 +15,18 @@ export const Create = (obj) => (dipatch) => {
     })
 }
 
-export const Get = (obj) => async (dispatch) => {
-  try {
-    axios.get('/api/ci').then((res) =>
-      dispatch({
-        type: 'GET_CI',
-        payload: res.data,
-      })
-    )
-  } catch (err) {
-    dispatchEvent({
-      type: 'Error',
+export const Get = (obj) => (dispatch) => {
+  dispatch(setLoading())
+
+  axios.get('/api/ci').then((res) =>
+    dispatch({
+      type: 'GET_CI',
+      payload: res.data,
     })
-  }
+  )
+}
+export const setLoading = () => (dispatch) => {
+  dispatch({
+    type: 'LOADING',
+  })
 }

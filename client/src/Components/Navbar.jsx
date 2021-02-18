@@ -26,10 +26,10 @@ export const Header = (props) => {
           <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink tag={Link} to="/CI">
-                Compnay Information
+                Create New Client
               </NavLink>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <NavLink tag={Link} to="/CTI">
                 Company Trading INFO
               </NavLink>
@@ -54,7 +54,7 @@ export const Header = (props) => {
               <NavLink tag={Link} to="/check-List">
                 Check List
               </NavLink>
-            </NavItem>
+            </NavItem> */}
           </Nav>
         </Collapse>
       </Navbar>
