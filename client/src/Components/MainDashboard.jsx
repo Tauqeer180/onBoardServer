@@ -2,21 +2,25 @@ import { Button } from 'bootstrap'
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-import { Get } from '../actions/mainDBAction'
+import { Get } from '../actions/ciAction'
 
 export default function MainDashboard() {
   const history = useHistory()
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(Get())
   }, [dispatch])
 
-  const data = useSelector((state) => state.mainDBReducer)
+  const data = useSelector((state) => state.ciReducer.state)
+  // const isLoading = 'useSelector((state) => state.ciReducer.isLoading)'
+  const isLoading = useSelector((state) => state.ciReducer.isLoading)
+
+  console.log(isLoading)
   console.log(data)
   return (
     <div className='container-fluid'>
       <div class='table-responsive mt-5'>
+        <h1>{isLoading}</h1>
         <table class='table table-striped'>
           <thead>
             <tr>
@@ -30,8 +34,8 @@ export default function MainDashboard() {
               <th scope='col'>10 Day Report</th>
               <th scope='col '>Allocated Acquirer / Solution</th>
               <th scope='col'>Company Info & Checkout Page</th>
-              <th scope='col'>Pre Approval ems Buy Report</th>
-              <th scope='col '>Pre Approval ems Sel Report</th>
+              <th scope='col'>Pre Approval ems Buy Rate</th>
+              <th scope='col '>Pre Approval ems Sel Rate</th>
               <th scope='col '>Application Boarded Date</th>
               <th scope='col'>Aged Days</th>
               <th scope='col'>Trading / New to Cards (NTC)</th>
@@ -96,169 +100,179 @@ export default function MainDashboard() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope='row'>1</th>
-              <td style={{ position: 'relative' }}>AKTechIn Ltd</td>
-              <td>20</td>
-              <td>06</td>
-              <td>14</td>
-              <td>
-                <button type='submit'>0</button>
-              </td>
-              <td>CCBill</td>
-              <td>
-                <button type='submit'>0</button>
-                <button type='submit'>0</button>
-              </td>
-              <td>4.95%</td>
-              <td>6.95%</td>
-              <td>18 February, 2021</td>
-              <td>8</td>
-              <td>Trading</td>
-              <td>Generic pills</td>
-              <td>Luke</td>
-              <td>Nelson</td>
-              <td>Bulgaria</td>
-              <td>
-                <input
-                  onChange={(value) => {
-                    console.log(value.target.checked)
-                  }}
-                  disabled
-                  checked='true'
-                  value={1}
-                  type='checkbox'
-                  class='le-checkbox'
-                />
-              </td>
-              <td>Unlicensed</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>www.abc12.com</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>Andrew Davic</td>
-              <td>100%</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>UK</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>14-03-2025</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>Utility Bill</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>01 January, 2021</td>
-              <td>1 April, 2021</td>
-              <td>3</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>Scott Edmonds</td>
-              <td>0%</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>UK</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>14-03-2025</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>Utility Bill</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>Nil</td>
-              <td>Nill</td>
-              <td>03</td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' value='true' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-              <td>
-                <input type='checkbox' class='le-checkbox' />
-              </td>
-            </tr>
+            {isLoading === true ? (
+              <h1>Wait Bhai</h1>
+            ) : (
+              data.map((res, index) => {
+                return (
+                  <tr>
+                    <th scope='row'>1</th>
+                    <td style={{ position: 'relative' }}> {res.name} </td>
+                    <td>20</td>
+                    <td>06</td>
+                    <td>14</td>
+                    <td>
+                      <button type='submit'>0</button>
+                    </td>
+                    <td>{res.ci.tpi_aaSolution}</td>
+                    <td>
+                      <a href='https://www.google.com' type='submit'>
+                        0
+                      </a>
+                      <a href={'https://' + res.ci.tci_wUrl}>0</a>
+                    </td>
+                    <td>4.95%</td>
+                    <td>6.95%</td>
+                    <td>18 February, 2021</td>
+                    <td>8</td>
+                    <td>Trading</td>
+                    <td>Generic pills</td>
+                    <td>Luke</td>
+                    <td>Nelson</td>
+                    <td>Bulgaria</td>
+                    <td>
+                      <input
+                        onChange={(value) => {
+                          console.log(value.target.checked)
+                        }}
+                        disabled
+                        checked='true'
+                        value={1}
+                        type='checkbox'
+                        class='le-checkbox'
+                      />
+                    </td>
+                    <td>Unlicensed</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>www.abc12.com</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>Andrew Davic</td>
+                    <td>100%</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>UK</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>14-03-2025</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>Utility Bill</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>01 January, 2021</td>
+                    <td>1 April, 2021</td>
+                    <td>3</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>Scott Edmonds</td>
+                    <td>0%</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>UK</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>14-03-2025</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>Utility Bill</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>Nil</td>
+                    <td>Nill</td>
+                    <td>03</td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' value='true' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                    <td>
+                      <input type='checkbox' class='le-checkbox' />
+                    </td>
+                  </tr>
+                )
+              })
+            )}
 
             {/* seccc========== */}
 
-            <tr>
+            {/* <tr>
               <th scope='row'>1</th>
               <td style={{ position: 'relative' }}>AKTechIn Ltd</td>
               <td>20</td>
@@ -575,7 +589,7 @@ export default function MainDashboard() {
               <td>
                 <input type='checkbox' class='le-checkbox' />
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>
