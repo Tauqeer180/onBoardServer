@@ -16,7 +16,7 @@ export const Header = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <div  className='container'>
       <Navbar color="light" light expand="md">
         <NavLink active tag={Link} to="/">
           ONBOARD

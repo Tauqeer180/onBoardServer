@@ -1,8 +1,13 @@
-export const Create = (obj) => async (dispatch) => {
+import axios from "axios"
+
+export const Create = (obj, id) => async (dispatch) => {
 try {
-    dispatch({
-        type:'CREATE_SD',
-        payload:obj
+    axios.put('/api/sd', {sd:obj, id:id}).then((res)=>{
+
+        dispatch({
+            type:'CREATE_SD',
+            payload:res.data
+        })
     })
     
 } 

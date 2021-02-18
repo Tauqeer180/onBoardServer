@@ -39,4 +39,4 @@ let KYCSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("KYC", KYCSchema);
+module.exports =KYC= mongoose.model("KYC", KYCSchema);

@@ -40,11 +40,12 @@ router.route("/kyb/:id").get((req, res) => {
 });
 
 // Update KYB
-router.route("/kyb/:id").put((req, res, next) => {
-  KYBSchema.findByIdAndUpdate(
-    req.params.id,
+router.route("/kyb").put((req, res, next) => {
+  let obj = new KYBSchema(req.body)
+  KYBSchema.updateOne(
+    {_id: req.body.id},
     {
-      $set: req.body,
+      $set: {kyb:req.body.kyb},
     },
     (error, data) => {
       if (error) {

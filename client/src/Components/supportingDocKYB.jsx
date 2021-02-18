@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Create } from '../actions/sdAction'
 
 export default function CTI() {
   const dispatch = useDispatch()
+  const history = useHistory()
+  const id = useSelector((state) => state.ciReducer.id)
   const data = useSelector((state) => state.sdReducer)
   const [KYB_SD, setKYB_SD] = useState({
     // fsd_cbs: 'Pending',
@@ -27,11 +29,13 @@ export default function CTI() {
   useEffect(() => {
     setKYB_SD(data)
   }, [data])
-  const onSubmit = () => {
-    dispatch(Create(KYB_SD))
+  const onSubmit = (e) => {
+    e.preventDefault()
+    dispatch(Create(KYB_SD, id))
+    history.push('/check-List')
   }
   return (
-    <div>
+    <div className='container'>
       <div>
         <h2>
           <span class='badge badge-success'>Supporting Documents (KYB):</span>
@@ -52,7 +56,7 @@ export default function CTI() {
               <Label for='certificate'>Corporate Bank Statements:</Label>
               <select
                 className={
-                  KYB_SD.fsd_cbs == 'Pending'
+                  KYB_SD.fsd_cbs === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -71,7 +75,7 @@ export default function CTI() {
               <Label for='memo'>Personal Bank Statements:</Label>
               <select
                 className={
-                  KYB_SD.fsd_pbs == 'Pending'
+                  KYB_SD.fsd_pbs === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -90,7 +94,7 @@ export default function CTI() {
               <Label for='articles'>Proof of Wealth:</Label>
               <select
                 className={
-                  KYB_SD.fsd_pow == 'Pending'
+                  KYB_SD.fsd_pow === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -109,7 +113,7 @@ export default function CTI() {
               <Label for='shareRegister'>Company AML Policy:</Label>
               <select
                 className={
-                  KYB_SD.fsd_cap == 'Pending'
+                  KYB_SD.fsd_cap === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -135,7 +139,7 @@ export default function CTI() {
               <Label for='shareCertificate'>Gambling or Forex License:</Label>
               <select
                 className={
-                  KYB_SD.lta_gfl == 'Pending'
+                  KYB_SD.lta_gfl === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -154,7 +158,7 @@ export default function CTI() {
               <Label for='CCR'>Copywrite or Re-seller Agreement:</Label>
               <select
                 className={
-                  KYB_SD.lta_cra == 'Pending'
+                  KYB_SD.lta_cra === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -173,7 +177,7 @@ export default function CTI() {
               <Label for='CCR'>Fulfilment or Drop Shipping Agreement:</Label>
               <select
                 className={
-                  KYB_SD.lta_fdsa == 'Pending'
+                  KYB_SD.lta_fdsa === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -195,7 +199,7 @@ export default function CTI() {
               </Label>
               <select
                 className={
-                  KYB_SD.lta_fbo_cr == 'Pending'
+                  KYB_SD.lta_fbo_cr === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -210,9 +214,8 @@ export default function CTI() {
             </FormGroup>
           </Col>
         </Row>
-        <Link to='/check-List'>
-          <Button>Next</Button>
-        </Link>
+
+        <Button onClick={(e) => onSubmit(e)}>Next</Button>
       </Form>
     </div>
   )

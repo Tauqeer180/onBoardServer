@@ -1,18 +1,27 @@
 import { Button } from 'bootstrap'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
+import { Get } from '../actions/mainDBAction'
 
 export default function MainDashboard() {
+  const history = useHistory()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(Get())
+  }, [dispatch])
+
+  const data = useSelector((state) => state.mainDBReducer)
+  console.log(data)
   return (
-    <div>
+    <div className='container-fluid'>
       <div class='table-responsive mt-5'>
         <table class='table table-striped'>
           <thead>
             <tr>
               <th scope='col'> # </th>
-              <th
-                scope='col'
-                style={{ position: 'relative', }}
-                classNa>
+              <th scope='col' style={{ position: 'relative' }} classNa>
                 Registered Company Name
               </th>
               <th scope='col'>Total Pending</th>
@@ -89,9 +98,7 @@ export default function MainDashboard() {
           <tbody>
             <tr>
               <th scope='row'>1</th>
-              <td style={{ position: 'relative', }}>
-                AKTechIn Ltd
-              </td>
+              <td style={{ position: 'relative' }}>AKTechIn Ltd</td>
               <td>20</td>
               <td>06</td>
               <td>14</td>
@@ -249,13 +256,11 @@ export default function MainDashboard() {
               </td>
             </tr>
 
-            {/* seccc========= */}
+            {/* seccc========== */}
 
             <tr>
               <th scope='row'>1</th>
-              <td style={{ position: 'relative', }}>
-                AKTechIn Ltd
-              </td>
+              <td style={{ position: 'relative' }}>AKTechIn Ltd</td>
               <td>20</td>
               <td>06</td>
               <td>14</td>
@@ -414,9 +419,7 @@ export default function MainDashboard() {
             </tr>
             <tr>
               <th scope='row'>1</th>
-              <td style={{ position: 'relative', }}>
-                AKTechIn Ltd
-              </td>
+              <td style={{ position: 'relative' }}>AKTechIn Ltd</td>
               <td>20</td>
               <td>06</td>
               <td>14</td>

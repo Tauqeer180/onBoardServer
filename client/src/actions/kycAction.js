@@ -1,8 +1,12 @@
-export const Create = (obj) => async (dispatch) => {
+import axios from 'axios';
+export const Create = (obj, id) => async (dispatch) => {
     try {
-        dispatch({
-            type : 'CREATE_KYC',
-            payload : obj
+        axios.put('/api/kyc', {kyc: obj, id:id}).then((res)=>{
+            
+            dispatch({
+                type : 'CREATE_KYC',
+                payload : res.data,
+            })
         })
 
     }

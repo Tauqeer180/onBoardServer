@@ -25,4 +25,4 @@ let KYBSchema = new Schema(
     collection: "Records",
   }
 );
-module.exports = mongoose.model("KYB", KYBSchema);
+module.exports =KYB= mongoose.model("KYB", KYBSchema);

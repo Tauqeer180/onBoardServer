@@ -11,6 +11,7 @@ const KYC = ({ Done, Received, pending }) => {
   const dispatch = useDispatch()
   const history = useHistory()
   const data = useSelector((state) => state.kycReducer)
+  const id = useSelector((state) => state.ciReducer.id)
   // console.log(data)
   const [KYC, setKYC] = useState({
     // kyc_name: '',
@@ -37,9 +38,7 @@ const KYC = ({ Done, Received, pending }) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    dispatch(Create(KYC))
-    console.log('KYC')
-    console.log(data)
+    dispatch(Create(KYC, id))
     history.push('/kyb')
   }
   const [startDate, setStartDate] = useState()
@@ -81,7 +80,7 @@ const KYC = ({ Done, Received, pending }) => {
     console.log(e.target.value)
   }
   return (
-    <div>
+    <div  className='container'>
       <div>
         <h2>
           <span class='badge badge-success'>KNOW YOUR CUSTOMER (KYC)</span>
@@ -94,7 +93,7 @@ const KYC = ({ Done, Received, pending }) => {
               <Label for='Name'>Name</Label>
               <Input
                 className={
-                  KYC.kyc_name == ''
+                  KYC.kyc_name === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -112,7 +111,7 @@ const KYC = ({ Done, Received, pending }) => {
               <Label for='shareHolds'>Share Holds</Label>
               <Input
                 className={
-                  KYC.kyc_sHolds == ''
+                  KYC.kyc_sHolds === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -130,7 +129,7 @@ const KYC = ({ Done, Received, pending }) => {
               <Label for='passportID'>Passport / ID</Label>
               <Input
                 className={
-                  KYC.kyc_pID == ''
+                  KYC.kyc_pID === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -148,7 +147,7 @@ const KYC = ({ Done, Received, pending }) => {
               <Label for='ExpiryDate'>Start Date</Label>
               <Input
                 className={
-                  KYC.kyc_startDate == ''
+                  KYC.kyc_startDate === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -166,7 +165,7 @@ const KYC = ({ Done, Received, pending }) => {
               <Label for='ExpiryDate'>Expiry Date</Label>
               <Input
                 className={
-                  KYC.kyc_ExpiryDate == ''
+                  KYC.kyc_ExpiryDate === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -194,7 +193,7 @@ const KYC = ({ Done, Received, pending }) => {
               <Label for='Nationality'>Country/Nationality</Label>
               <Select
                 className={
-                  KYC.kyc_nationality == ''
+                  KYC.kyc_nationality === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -210,7 +209,7 @@ const KYC = ({ Done, Received, pending }) => {
               <Label for='Notaized'>Notarized</Label>
               <Input
                 className={
-                  KYC.kyc_notarized == '' ? 'border-red ' : 'custom-select'
+                  KYC.kyc_notarized === '' ? 'border-red ' : 'custom-select'
                 }
                 value={KYC.kyc_notarized}
                 name='kyc_notarized'
@@ -228,7 +227,7 @@ const KYC = ({ Done, Received, pending }) => {
               <Label for='Address'>Address</Label>
               <Input
                 className={
-                  KYC.kyc_Address == ''
+                  KYC.kyc_Address === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -249,7 +248,7 @@ const KYC = ({ Done, Received, pending }) => {
                 name='kyc_toProof'
                 onChange={handleInput}
                 className={
-                  KYC.kyc_toProof == ''
+                  KYC.kyc_toProof === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -267,7 +266,7 @@ const KYC = ({ Done, Received, pending }) => {
                 name='kyc_paDocument'
                 onChange={handleInput}
                 className={
-                  KYC.kyc_paDocument == ''
+                  KYC.kyc_paDocument === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }

@@ -58,12 +58,12 @@ export default function CI() {
     // console.log(CI);
     dispatch(Create(CI))
     // dispatch(id(Math.random))
-    history.push('/CTI/' + id)
+    history.push('/CTI/' + '602c1fa022bece08783ed877')
     // setState({ name: "", email: "", rollno: "" });
   }
 
   return (
-    <div className='mt-4 mb-5'>
+    <div className='mt-4 mb-5 container'>
       <div>
         <h2>
           <span class='badge badge-success'>COMPANY INFORMATION </span>
@@ -85,7 +85,7 @@ export default function CI() {
                 <Label for='certificate'>Registered Company Name: </Label>
                 <select
                   className={
-                    CI.tpi_rcName == 'Pending'
+                    CI.tpi_rcName === 'Pending'
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -125,7 +125,7 @@ export default function CI() {
 
                 <Input
                   className={
-                    CI.tpi_ntc == ''
+                    CI.tpi_ntc === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -143,7 +143,7 @@ export default function CI() {
                 <Label for='shareRegister'>Vertical / Trading Sector: :</Label>
                 <select
                   className={
-                    CI.tpi_vtSector == 'Pending'
+                    CI.tpi_vtSector === 'Pending'
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -162,7 +162,7 @@ export default function CI() {
                 <Label for='shareCertificate'>Application Boarded Date:</Label>
                 <Input
                   className={
-                    CI.tpi_date == ''
+                    CI.tpi_date === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -180,7 +180,7 @@ export default function CI() {
                 <Label for='CCR'>Business / Referral Partner:</Label>
                 <select
                   className={
-                    CI.tpi_brPartner == 'Pending'
+                    CI.tpi_brPartner === 'Pending'
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -201,7 +201,7 @@ export default function CI() {
                 <Label for='CCR'>Assigned - BDM / Owner:</Label>
                 <select
                   className={
-                    CI.tpi_aBdmOwner == 'Pending'
+                    CI.tpi_aBdmOwner === 'Pending'
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -222,7 +222,7 @@ export default function CI() {
                 <Label for='CCR'>Compliance Country Location:</Label>
                 <select
                   className={
-                    CI.tpi_ccLocation == 'Pending'
+                    CI.tpi_ccLocation === 'Pending'
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -241,7 +241,7 @@ export default function CI() {
                 <Label for='CCR'>EEA Documents:</Label>
                 <select
                   className={
-                    CI.tpi_EEADocuments == 'Pending'
+                    CI.tpi_EEADocuments === 'Pending'
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -260,7 +260,7 @@ export default function CI() {
                 <Label for='CCR'>Trading License or Agreements Required:</Label>
                 <select
                   className={
-                    CI.tpi_TLoAR == 'Pending'
+                    CI.tpi_TLoAR === 'Pending'
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -293,7 +293,7 @@ export default function CI() {
                 <Label for='mci_crAddress'>Company Registered Address:</Label>
                 <Input
                   className={
-                    CI.mci_crAddress == ''
+                    CI.mci_crAddress === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -312,7 +312,7 @@ export default function CI() {
                 <Label for='address'>Company Registered Number: </Label>
                 <Input
                   className={
-                    CI.mci_crNumber == ''
+                    CI.mci_crNumber === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -333,7 +333,7 @@ export default function CI() {
                 </Label>
                 <Input
                   className={
-                    CI.mci_ctAddress == ''
+                    CI.mci_ctAddress === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -352,7 +352,7 @@ export default function CI() {
                 <Label for='address'>Vertical / Trading Sector: </Label>
                 <Input
                   className={
-                    CI.mci_vtSector == ''
+                    CI.mci_vtSector === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -383,7 +383,7 @@ export default function CI() {
                 <Label for='address'>Contact Name:</Label>
                 <Input
                   className={
-                    CI.cci_cName == ''
+                    CI.cci_cName === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -402,7 +402,7 @@ export default function CI() {
                 <Label for='address'>Skype Address:</Label>
                 <Input
                   className={
-                    CI.cci_skypeAddress == ''
+                    CI.cci_skypeAddress === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -422,7 +422,7 @@ export default function CI() {
                 <Label for='address'>Mobile Number: </Label>
                 <Input
                   className={
-                    CI.cci_mNumber == ''
+                    CI.cci_mNumber === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -441,7 +441,7 @@ export default function CI() {
                 <Label for='address'>Landline Number: </Label>
                 <Input
                   className={
-                    CI.cci_lNumber == ''
+                    CI.cci_lNumber === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -460,7 +460,7 @@ export default function CI() {
                 <Label for='address'>OTP Mobile Number (IBAN Only): </Label>
                 <Input
                   className={
-                    CI.cci_otpMNumber == ''
+                    CI.cci_otpMNumber === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -477,7 +477,7 @@ export default function CI() {
           </Row>
         </div>
 
-        {/* =========================================== */}
+        {/* ================================================ */}
 
         {/* **************************** */}
         <hr className='border-primary' />
@@ -496,7 +496,7 @@ export default function CI() {
                 <Label for='address'>Company Registered Address:</Label>
                 <Input
                   className={
-                    CI.tci_crAddress == ''
+                    CI.tci_crAddress === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -515,7 +515,7 @@ export default function CI() {
                 <Label for='address'>Company Registered Number: </Label>
                 <Input
                   className={
-                    CI.tci_crNumber == ''
+                    CI.tci_crNumber === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -536,7 +536,7 @@ export default function CI() {
                 </Label>
                 <Input
                   className={
-                    CI.tci_ctAddress == ''
+                    CI.tci_ctAddress === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -555,7 +555,7 @@ export default function CI() {
                 <Label for='address'>Website: </Label>
                 <Input
                   className={
-                    CI.tci_wUrl == ''
+                    CI.tci_wUrl === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -586,7 +586,7 @@ export default function CI() {
                 <Label for='address'>Contact Name:</Label>
                 <Input
                   className={
-                    CI.cci_2_cName == ''
+                    CI.cci_2_cName === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -605,7 +605,7 @@ export default function CI() {
                 <Label for='address'>Position:</Label>
                 <Input
                   className={
-                    CI.cci_2_Position == ''
+                    CI.cci_2_Position === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -625,7 +625,7 @@ export default function CI() {
                 <Label for='address'>Mobile Number: </Label>
                 <Input
                   className={
-                    CI.cci_2_mNumber == ''
+                    CI.cci_2_mNumber === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -644,7 +644,7 @@ export default function CI() {
                 <Label for='address'>Landline Number: </Label>
                 <Input
                   className={
-                    CI.cci_2_lNumber == ''
+                    CI.cci_2_lNumber === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -663,7 +663,7 @@ export default function CI() {
                 <Label for='address'>OTP Mobile Number (IBAN Only): </Label>
                 <Input
                   className={
-                    CI.cci_2_otpMNumber == ''
+                    CI.cci_2_otpMNumber === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }
@@ -682,7 +682,7 @@ export default function CI() {
                 <Label for='address'>Skype Address:</Label>
                 <Input
                   className={
-                    CI.cci_2_skypeAddress == ''
+                    CI.cci_2_skypeAddress === ''
                       ? 'border-red custom-select'
                       : 'custom-select'
                   }

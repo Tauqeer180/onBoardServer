@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const Schema =mongoose.Schema
 let CTISchema = new Schema(
-  {cti:{
-    cti_fcaForm: {
+  {
+    cti:{cti_fcaForm: {
       type: String,
     },
     cti_bInformation: {
@@ -31,4 +31,4 @@ let CTISchema = new Schema(
     collection: "Records",
   }
 );
-module.exports = mongoose.model("CTI", CTISchema);
+module.exports =CTI= mongoose.model("CTI", CTISchema);

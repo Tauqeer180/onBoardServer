@@ -33,4 +33,4 @@ let SDCSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("SDC", SDCSchema);
+module.exports =SDC= mongoose.model("SDC", SDCSchema);

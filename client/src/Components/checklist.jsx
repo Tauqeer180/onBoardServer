@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 const styLabel = { border: '2px solid black', width: '50%' }
 export const CheckList = () => {
   return (
-    <div>
+    <div className='container'>
       <div>
         <h2>
           <span class='badge badge-success'>COMPANY INFORMATION </span>

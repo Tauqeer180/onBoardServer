@@ -35,10 +35,10 @@ const CTI = ({ Done, completed, pending }) => {
   const onSubmit = (e) => {
     e.preventDefault()
     dispatch(Create(CTI, id))
-    history.push('/kyc/' + id)
+    history.push('/kyc/')
   }
   return (
-    <div>
+    <div className='container'>
       <div>
         <h2>
           <span class='badge badge-success'>COMPANY TRADING INFORMATION</span>
@@ -51,7 +51,7 @@ const CTI = ({ Done, completed, pending }) => {
               <Label for='certificate'>Fully Completed Application Form:</Label>
               <select
                 className={
-                  CTI.cti_fcaForm == 'Pending'
+                  CTI.cti_fcaForm === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -70,7 +70,7 @@ const CTI = ({ Done, completed, pending }) => {
               <Label for='memo'>Bank Information (Welcome Letter):</Label>
               <select
                 className={
-                  CTI.cti_bInformation == 'Pending'
+                  CTI.cti_bInformation === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -90,7 +90,7 @@ const CTI = ({ Done, completed, pending }) => {
 
               <Input
                 className={
-                  CTI.cti_otAgreement == ''
+                  CTI.cti_otAgreement === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -109,7 +109,7 @@ const CTI = ({ Done, completed, pending }) => {
               <Label for='shareRegister'>Headline Website URL Address:</Label>
               <select
                 className={
-                  CTI.cti_hwUrl == 'Pending'
+                  CTI.cti_hwUrl === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -130,7 +130,7 @@ const CTI = ({ Done, completed, pending }) => {
               <Label for='shareCertificate'>Website Compliance:</Label>
               <Input
                 className={
-                  CTI.cti_wCompliance == ''
+                  CTI.cti_wCompliance === ''
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -148,7 +148,7 @@ const CTI = ({ Done, completed, pending }) => {
               <Label for='CCR'>Website URL - Proof of Domain:</Label>
               <select
                 className={
-                  CTI.cti_wUrl_proofDomain == 'Pending'
+                  CTI.cti_wUrl_proofDomain === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -169,7 +169,7 @@ const CTI = ({ Done, completed, pending }) => {
               <Label for='CCR'>Ownership Structure Chart:</Label>
               <select
                 className={
-                  CTI.cti_osChart == 'Pending'
+                  CTI.cti_osChart === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -190,7 +190,7 @@ const CTI = ({ Done, completed, pending }) => {
               <Label for='CCR'>Business Plan:</Label>
               <select
                 className={
-                  CTI.cti_bPlan == 'Pending'
+                  CTI.cti_bPlan === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -205,9 +205,9 @@ const CTI = ({ Done, completed, pending }) => {
             </FormGroup>
           </Col>
         </Row>
-        <Link to='/kyc'>
-          <Button>Next</Button>
-        </Link>
+      
+          <Button onClick={onSubmit}>Next</Button>
+        
       </Form>
     </div>
   )

@@ -40,11 +40,12 @@ router.route("/sd/:id").get((req, res) => {
 });
 
 // Update Student
-router.route("/sd/:id").put((req, res, next) => {
-  SDCSchema.findByIdAndUpdate(
-    req.params.id,
+router.route("/sd").put((req, res, next) => {
+  let obj = new SDCSchema(req.body)
+  SDCSchema.updateOne(
+    {_id : req.body.id},
     {
-      $set: req.body,
+      $set:{sd: req.body.sd},
     },
     (error, data) => {
       if (error) {

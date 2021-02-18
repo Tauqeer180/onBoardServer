@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row, Form, FormGroup, Label, Button, Input } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Create } from '../actions/kybAction'
 
-export default function CTI() {
+export default function KYB() {
   const dispatch = useDispatch()
+  const history = useHistory();
   const data = useSelector((state) => state.kybReducer)
+  const id = useSelector((state) => state.ciReducer.id)
 
   const [KYB, setKYB] = useState({
     // kyb_coi: 'Pending',
@@ -33,13 +35,14 @@ export default function CTI() {
     console.log('clicked')
     e.preventDefault()
 
-    dispatch(Create(KYB))
+    dispatch(Create(KYB,id))
+    history.push('/supporting-doc-kyb')
     // setState({ name: "", email: "", rollno: "" });
     
   }
 
   return (
-    <div>
+    <div className='container'>
       <div>
         <h2>
           <span class='badge badge-success'>Know Your Business (KYB):</span>
@@ -52,7 +55,7 @@ export default function CTI() {
               <Label for='certificate'>Certificate of Incorporation:</Label>
               <select
                 className={
-                  KYB.kyb_coi == 'Pending'
+                  KYB.kyb_coi === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -71,7 +74,7 @@ export default function CTI() {
               <Label for='memo'>Memorandum of Association:</Label>
               <select
                 className={
-                  KYB.kyb_moa == 'Pending'
+                  KYB.kyb_moa === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -90,7 +93,7 @@ export default function CTI() {
               <Label for='articles'>Articles of Association:</Label>
               <select
                 className={
-                  KYB.kyb_aoa == 'Pending'
+                  KYB.kyb_aoa === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -109,7 +112,7 @@ export default function CTI() {
               <Label for='shareRegister'>Share Register:</Label>
               <select
                 className={
-                  KYB.kyb_sRegister == 'Pending'
+                  KYB.kyb_sRegister === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -130,7 +133,7 @@ export default function CTI() {
               </Label>
               <select
                 className={
-                  KYB.kyb_scs == 'Pending'
+                  KYB.kyb_scs === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
@@ -149,7 +152,7 @@ export default function CTI() {
               <Label for='CCR'>Current Commercial Register Extract:</Label>
               <select
                 className={
-                  KYB.kyb_ccre == 'Pending'
+                  KYB.kyb_ccre === 'Pending'
                     ? 'border-red custom-select'
                     : 'custom-select'
                 }
