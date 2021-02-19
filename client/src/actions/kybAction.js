@@ -3,7 +3,7 @@
 import  axios  from "axios";
 export const Create = (obj,id) => async (dispatch) => {
     try {
-      axios
+    await  axios
       .put('/api/kyb',{kyb:obj,id:id}).then((res)=>{
         console.log('action clicked');
       dispatch({

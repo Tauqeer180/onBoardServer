@@ -41,11 +41,11 @@ router.route("/sd/:id").get((req, res) => {
 
 // Update Student
 router.route("/sd").put((req, res, next) => {
-  let obj = new SDCSchema(req.body)
+  let obj = new SDCSchema(req.body);
   SDCSchema.updateOne(
-    {_id : req.body.id},
+    { _id: req.body.id },
     {
-      $set:{sd: req.body.sd},
+      $set: { sd: req.body.sd },
     },
     (error, data) => {
       if (error) {

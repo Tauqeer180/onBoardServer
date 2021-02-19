@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const Create = (obj, id) => async (dispatch) => {
 try {
-    axios.put('/api/sd', {sd:obj, id:id}).then((res)=>{
+   await axios.put('/api/sd', {sd:obj, id:id}).then((res)=>{
 
         dispatch({
             type:'CREATE_SD',

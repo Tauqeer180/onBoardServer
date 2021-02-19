@@ -8,6 +8,7 @@ export default function CTI() {
   const dispatch = useDispatch()
   const history = useHistory()
   const id = useSelector((state) => state.ciReducer.id)
+   console.log(id);
   const data = useSelector((state) => state.sdReducer)
   const { urlid } = useParams();
  

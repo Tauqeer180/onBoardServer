@@ -35,10 +35,16 @@ const CTI = ({ Done, completed, pending }) => {
     setCTI(data);
   }, [data]);
   const onSubmit = (e) => {
-    e.preventDefault();
-    urlid ? dispatch(Create(CTI, urlid)) : dispatch(Create(CTI, id));
-    history.push("/kyc/" + urlid);
+    console.log(CTI);
+    dispatch(Create(CTI , id));
+
+    history.push("/KYC");
   };
+  const onUpdateSubmit = (e) => {
+    dispatch(Create(CTI, urlid));
+    history.push("/KYC/" + urlid);
+  };
+
   return (
     <div className="container">
       <div>
@@ -208,7 +214,11 @@ const CTI = ({ Done, completed, pending }) => {
           </Col>
         </Row>
 
-        <Button onClick={onSubmit}>Next</Button>
+        {urlid ? (
+          <Button onClick={onUpdateSubmit}>Update and Next</Button>
+        ) : (
+          <Button onClick={onSubmit}>Save and Next</Button>
+        )}
       </Form>
     </div>
   );

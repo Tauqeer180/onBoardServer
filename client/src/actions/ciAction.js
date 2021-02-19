@@ -6,7 +6,8 @@ export const Create = (obj) => async (dipatch) => {
       name: obj.tpi_rcName,
     })
     .then((res) => {
-      // console.log(res.data)
+      console.log("Ci action");
+      console.log(res.data);
       dipatch({
         type: "CREATE_CI",
         payload: res.data.state,

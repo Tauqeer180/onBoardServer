@@ -1,6 +1,6 @@
-let mongoose = require("mongoose")
-  const express = require("express")
-  const router = express.Router();
+let mongoose = require("mongoose");
+const express = require("express");
+const router = express.Router();
 
 // KYC Model
 let KYCSchema = require("../../models/KYC");
@@ -41,10 +41,10 @@ router.route("/KYC/:id").get((req, res) => {
 
 // Update KYC
 router.route("/KYC/").put((req, res, next) => {
-  let obj = new KYCSchema(req.body)
+  let obj = new KYCSchema(req.body);
   KYCSchema.updateOne(
-    {_id : req.body.id},
-    { $set : {kyc: req.body.kyc}    },
+    { _id: req.body.id },
+    { $set: { kyc: req.body.kyc } },
     (error, data) => {
       if (error) {
         return next(error);

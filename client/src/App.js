@@ -35,15 +35,8 @@ function App() {
               <Route exact path="/kyb/:urlid" component={KYB} />
               <Route exact path="/sdkyb" component={SDKYB} />
               <Route exact path="/sdkyb/:urlid" component={SDKYB} />
-              {/* <Route exact path="/sdkyb/:urlid" component={SDKYB} /> */}
               <Route exact path="/check-List" component={CheckList} />
               <Route exact path="/check-List/:urlid" component={CheckList} />
-              {/* <Route exact path="/supporting-doc-kyb/" component={SDKYB} /> */}
-              <Route
-                exact
-                path="/supporting-doc-kyb/:urlid"
-                component={SDKYB}
-              />
               <Route
                 exact
                 path="/supporting-doc-kyb/:urlid"
