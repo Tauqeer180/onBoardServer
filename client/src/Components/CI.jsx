@@ -8,7 +8,7 @@ export default function CI(props) {
   const dispatch = useDispatch()
   const data = useSelector((state) => state.ciReducer)
   const id = useSelector((state) => state.ciReducer._id)
-  console.log(data)
+  // console.log(data)
   const { urlid } = useParams()
   console.log(urlid)
   const history = useHistory()
