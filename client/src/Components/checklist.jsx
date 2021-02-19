@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { Row, Button, Form } from "reactstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import ChecklistR from "./CheckList/checklistR";
 import { useDispatch, useSelector } from "react-redux";
 import { Create } from "../actions/clAction";
@@ -14,6 +14,7 @@ export const CheckList = () => {
   console.log(data);
   const id = useSelector((state) => state.ciReducer.id);
   const [image, setImage] = useState("");
+  const { urlid } = useParams();
 
   const [CL, setCL] = React.useState({
     fcaf: { status: "pending", fileName: "fileName" },
@@ -58,8 +59,8 @@ export const CheckList = () => {
     setCL(data);
   }, [data]);
   console.log(CL);
-  const handleChange =   (e) => {
-   setCL({
+  const handleChange = (e) => {
+    setCL({
       ...CL,
       [e.target.name]: e.target.value,
     });
@@ -84,7 +85,7 @@ export const CheckList = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(Create(CL, id));
+    urlid ? dispatch(Create(CL, urlid)) : dispatch(Create(CL, id));
     history.push("/");
   };
 

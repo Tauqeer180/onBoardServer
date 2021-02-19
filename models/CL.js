@@ -4,106 +4,276 @@ let CLSchema = new Schema(
   {
     cl: {
       fcaf: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       bi: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       ota: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       aps: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       hwua: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       wc: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       wuod: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       owsc: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       bp: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       ldp: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       ldpa: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       pad: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       sdp: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       sdpa: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       tdp: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       tdpa: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       fdp: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       fdpa: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       coi: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       moa: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       aoa: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       sr: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       scs: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       ccre: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       cbs: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       pbs: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       pow: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       cap: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       gofl: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       cora: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       fodsa: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       fcR: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       shs: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
       df: {
-        type: String,
+        status: {
+          type: String,
+        },
+        fileName: {
+          type: String,
+        },
       },
     },
   },

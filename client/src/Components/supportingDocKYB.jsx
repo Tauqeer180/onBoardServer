@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Create } from '../actions/sdAction'
 
@@ -9,6 +9,8 @@ export default function CTI() {
   const history = useHistory()
   const id = useSelector((state) => state.ciReducer.id)
   const data = useSelector((state) => state.sdReducer)
+  const { urlid } = useParams();
+ 
   const [KYB_SD, setKYB_SD] = useState({
     // fsd_cbs: 'Pending',
     // fsd_pbs: 'Pending',
@@ -31,8 +33,10 @@ export default function CTI() {
   }, [data])
   const onSubmit = (e) => {
     e.preventDefault()
-    dispatch(Create(KYB_SD, id))
-    history.push('/check-List')
+    urlid?
+    dispatch(Create(KYB_SD, urlid)):
+    dispatch(Create(KYB_SD, id));
+    history.push('/check-List/'+ urlid)
   }
   return (
     <div className='container'>

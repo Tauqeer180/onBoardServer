@@ -68,12 +68,14 @@ router.get("/ci", (req, res) => {
 });
 
 // Update CI
-router.route("/CI/:id").put((req, res, next) => {
-  CISchema.findByIdAndUpdate(
-    req.params.id,
-    {
-      $set: req.body,
-    },
+router.route("/ci/").put((req, res, next) => {
+  let obj1 = new CISchema(req.body);
+  console.log(req);
+  CISchema.updateOne(
+    { _id: req.body.id },
+    { $set: { ci: req.body.ci } },
+    // {$set: req.body},
+
     (error, data) => {
       if (error) {
         return next(error);

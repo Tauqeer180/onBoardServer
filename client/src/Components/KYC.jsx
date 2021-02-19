@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { Col, Row, Form, FormGroup, Label, Input, Button } from 'reactstrap'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import moment from 'moment'
 import countryList from 'react-select-country-list'
 import Select from 'react-select'
@@ -12,6 +12,8 @@ const KYC = ({ Done, Received, pending }) => {
   const history = useHistory()
   const data = useSelector((state) => state.kycReducer)
   const id = useSelector((state) => state.ciReducer.id)
+  const { urlid } = useParams();
+  
   // console.log(data)
   const [KYC, setKYC] = useState({
     // kyc_name: '',
@@ -38,8 +40,10 @@ const KYC = ({ Done, Received, pending }) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    dispatch(Create(KYC, id))
-    history.push('/kyb')
+    urlid?
+    dispatch(Create(KYC, urlid)):
+    dispatch(Create(KYC, id));
+    history.push('/kyb/'+ urlid)
   }
   const [startDate, setStartDate] = useState()
   const [ExpiryDate, setExpiryDate] = useState()

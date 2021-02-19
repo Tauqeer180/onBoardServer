@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row, Form, FormGroup, Label, Button, Input } from 'reactstrap'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import { Create } from '../actions/kybAction'
 
 export default function KYB() {
@@ -9,7 +9,7 @@ export default function KYB() {
   const history = useHistory();
   const data = useSelector((state) => state.kybReducer)
   const id = useSelector((state) => state.ciReducer.id)
-
+const {urlid} = useParams()
   const [KYB, setKYB] = useState({
     // kyb_coi: 'Pending',
     // kyb_moa: 'Pending',
@@ -34,9 +34,9 @@ export default function KYB() {
   const onSubmit = (e) => {
     console.log('clicked')
     e.preventDefault()
-
-    dispatch(Create(KYB,id))
-    history.push('/supporting-doc-kyb')
+urlid?dispatch(Create(KYB,urlid)):
+    dispatch(Create(KYB,id));
+    history.push('/supporting-doc-kyb/'+ urlid)
     // setState({ name: "", email: "", rollno: "" });
     
   }

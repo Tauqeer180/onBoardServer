@@ -25,14 +25,30 @@ function App() {
           <Switch>
             <div>
               <Route exact path="/" component={MainDashboard} />
-              <Route path="/ci" component={CI} />
-              <Route path="/ci/:urlid" component={CI} />
-              <Route path="/cti" component={CTI} />
-              <Route path="/kyc" component={KYC} />
-              <Route path="/kyb" component={KYB} />
-              <Route path="/sdkyb" component={SDKYB} />
-              <Route path="/check-List" component={CheckList} />
-              <Route path="/supporting-doc-kyb" component={SDKYB} />
+              <Route exact path="/ci" component={CI} />
+              <Route exact path="/ci/:urlid" component={CI} />
+              <Route exact path="/cti" component={CTI} />
+              <Route exact path="/cti/:urlid" component={CTI} />
+              <Route exact path="/kyc" component={KYC} />
+              <Route exact path="/kyc/:urlid" component={KYC} />
+              <Route exact path="/kyb" component={KYB} />
+              <Route exact path="/kyb/:urlid" component={KYB} />
+              <Route exact path="/sdkyb" component={SDKYB} />
+              <Route exact path="/sdkyb/:urlid" component={SDKYB} />
+              {/* <Route exact path="/sdkyb/:urlid" component={SDKYB} /> */}
+              <Route exact path="/check-List" component={CheckList} />
+              <Route exact path="/check-List/:urlid" component={CheckList} />
+              {/* <Route exact path="/supporting-doc-kyb/" component={SDKYB} /> */}
+              <Route
+                exact
+                path="/supporting-doc-kyb/:urlid"
+                component={SDKYB}
+              />
+              <Route
+                exact
+                path="/supporting-doc-kyb/:urlid"
+                component={SDKYB}
+              />
             </div>
           </Switch>
         </Router>
