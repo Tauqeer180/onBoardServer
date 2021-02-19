@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AiOutlineFolderView,
   AiFillEdit,
@@ -57,7 +57,7 @@ const ChecklistR = (props) => {
                 ? "border-red custom-select"
                 : "custom-select"
             }
-            value={props.value || "Pending"}
+            value={props.value}
             id="1"
             name={props.name}
             onChange={props.onChange}
