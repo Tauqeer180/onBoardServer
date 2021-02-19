@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Create } from '../actions/ciAction'
+import { Create, Update, GetOne } from '../actions/ciAction'
 
-export default function CI() {
+export default function CI(props) {
   const dispatch = useDispatch()
   const data = useSelector((state) => state.ciReducer)
   const id = useSelector((state) => state.ciReducer._id)
-  console.log(id)
+  console.log(data)
+  const { urlid } = useParams()
+  console.log(urlid)
   const history = useHistory()
+
+  useEffect(() => {
+    urlid ? dispatch(GetOne(urlid)) : console.log('New Will be created')
+  }, [urlid])
+  console.log('**********')
+  console.log(data)
+
   const [CI, setCI] = React.useState({
     // tpi_rcName: 'Received',
     // tpi_aaSolution: 'Pending',
@@ -50,6 +59,7 @@ export default function CI() {
       ...CI,
       [evt.target.name]: evt.target.value,
     })
+    console.log(CI)
   }
 
   const onSubmit = (e) => {
@@ -58,7 +68,16 @@ export default function CI() {
     // console.log(CI);
     dispatch(Create(CI))
     // dispatch(id(Math.random))
-    history.push('/CTI/' + '602c1fa022bece08783ed877')
+    history.push('/CTI')
+    // setState({ name: "", email: "", rollno: "" });
+  }
+  const onUpdateSubmit = (e) => {
+    // // console.log('clicked')
+    // e.preventDefault()
+    // // console.log(CI);
+    // dispatch(Update(CI))
+    // // dispatch(id(Math.random))
+    // history.push('/CTI/' + urlid)
     // setState({ name: "", email: "", rollno: "" });
   }
 
@@ -697,8 +716,11 @@ export default function CI() {
               </FormGroup>
             </Col>
           </Row>
-
-          <Button onClick={onSubmit}>Next</Button>
+          {urlid ? (
+            <Button onClick={onUpdateSubmit}>Update and Next</Button>
+          ) : (
+            <Button onClick={onSubmit}>Save and Next</Button>
+          )}
         </div>
       </Form>
     </div>

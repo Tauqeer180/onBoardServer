@@ -107,7 +107,10 @@ export default function MainDashboard() {
                 return (
                   <tr>
                     <th scope='row'>1</th>
-                    <td style={{ position: 'relative' }}> {res.name} </td>
+                    <td style={{ position: 'relative' }}>
+                      {' '}
+                      <Link to={'/ci/' + res._id}>{res.name}</Link>{' '}
+                    </td>
                     <td>20</td>
                     <td>06</td>
                     <td>14</td>

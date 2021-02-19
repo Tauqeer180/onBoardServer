@@ -17,7 +17,7 @@ import { Header } from './Components/Navbar'
 
 function App() {
   return (
-    <div >
+    <div>
       <Provider store={store}>
         <Router>
           <Header />
@@ -25,6 +25,7 @@ function App() {
             <div>
               <Route exact path='/' component={MainDashboard} />
               <Route path='/ci' component={CI} />
+              <Route path='/ci/:urlid' component={CI} />
               <Route path='/cti' component={CTI} />
               <Route path='/kyc' component={KYC} />
               <Route path='/kyb' component={KYB} />
