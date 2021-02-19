@@ -1,52 +1,22 @@
-import React, { useState } from "react";
-import {
-  AiOutlineFolderView,
-  AiFillEdit,
-  AiOutlineReload,
-} from "react-icons/ai";
-import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+ 
+import {   Row, Button, Form,   } from "reactstrap";
+import { Link, useHistory } from "react-router-dom";
 import ChecklistR from "./CheckList/checklistR";
 import { useDispatch, useSelector } from "react-redux";
-
-const styLabel = { border: "2px solid black", width: "50%" };
+import { Create } from "../actions/clAction";
+import axios from "axios";
 export const CheckList = () => {
-  const [CL, setCL] = React.useState({
-    fcaf: "pending",
-    bi: "pending",
-    ota: "pending",
-    aps: "pending",
-    hwua: "pending",
-    wc: "pending",
-    wuod: "pending",
-    owsc: "pending",
-    bp: "pending",
-    ldp: "pending",
-    ldpa: "pending",
-    pad: "pending",
-    sdp: "pending",
-    sdpa: "pending",
-    tdp: "pending",
-    tdpa: "pending",
-    fdp: "pending",
-    fdpa: "pending",
-    coi: "pending",
-    moa: "pending",
-    aoa: "pending",
-    sr: "pending",
-    scs: "pending",
-    ccre: "pending",
-    cbs: "pending",
-    pbs: "pending",
-    pow: "pending",
-    cap: "pending",
-    gofl: "pending",
-    cora: "pending",
-    fodsa: "pending",
-    fcR: "pending",
-    shs: "pending",
-    df: "pending",
-  });
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const data = useSelector((state) => state.clReducer);
+  const id = useSelector((state) => state.ciReducer.id);
+  const [image, setImage] = useState("");
+
+  const [CL, setCL] = React.useState({});
+  useEffect(() => {
+    setCL(data);
+  }, [data]);
   console.log(CL);
   const handleChange = async (e) => {
     await setCL({
@@ -54,6 +24,29 @@ export const CheckList = () => {
       [e.target.name]: e.target.value,
     });
   };
+  //ImageHandler
+  const ImageHandler = async (e) => {
+    const file = e.target.files[0];
+    const fileName = e.target.files[0].name;
+    console.log(fileName);
+    const formData = new FormData();
+    formData.append("file", file);
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+      const { data } = axios.post("api/upload", formData, config);
+      setImage(data);
+    } catch (error) {}
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(Create(CL, id));
+    history.push("/");
+  };
+
   return (
     <div className="container">
       <div>
@@ -72,6 +65,9 @@ export const CheckList = () => {
               console.log("changing");
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Bank Information (Welcome Letter) "}
@@ -81,6 +77,9 @@ export const CheckList = () => {
               console.log("changing");
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Office Tenancy Agreement "}
@@ -88,6 +87,9 @@ export const CheckList = () => {
             value={CL.ota}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -97,6 +99,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Headline Website URL Address"}
@@ -104,6 +109,9 @@ export const CheckList = () => {
             value={CL.hwua}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -113,6 +121,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Website URL-Proof of Domain"}
@@ -121,6 +132,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Ownership Structure Chart "}
@@ -128,6 +142,9 @@ export const CheckList = () => {
             value={CL.owsc}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR text={"Business Plan"} name={"bp"} value={CL.bp} />
@@ -138,6 +155,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Lead Director-Proof of Address"}
@@ -145,6 +165,9 @@ export const CheckList = () => {
             value={CL.ldpa}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -154,6 +177,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Second Director-Passport"}
@@ -161,6 +187,9 @@ export const CheckList = () => {
             value={CL.sdp}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -170,6 +199,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Third Director-Passport"}
@@ -177,6 +209,9 @@ export const CheckList = () => {
             value={CL.tdp}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -186,6 +221,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Fourth Director-Passport"}
@@ -193,6 +231,9 @@ export const CheckList = () => {
             value={CL.fdp}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -202,6 +243,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Certificate of Incorporation "}
@@ -209,6 +253,9 @@ export const CheckList = () => {
             value={CL.coi}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -218,6 +265,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Articles of Association"}
@@ -225,6 +275,9 @@ export const CheckList = () => {
             value={CL.aoa}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -234,6 +287,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Share Certificate(s)-Signed"}
@@ -241,6 +297,9 @@ export const CheckList = () => {
             value={CL.scs}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -250,6 +309,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Corporate Bank Statements"}
@@ -257,6 +319,9 @@ export const CheckList = () => {
             value={CL.cbs}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -266,6 +331,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Proof of Wealth"}
@@ -273,6 +341,9 @@ export const CheckList = () => {
             value={CL.pow}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -282,6 +353,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Gambling or Forex License"}
@@ -289,6 +363,9 @@ export const CheckList = () => {
             value={CL.gofl}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -298,6 +375,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Fulfilment or Drop Shipping Agreement"}
@@ -305,6 +385,9 @@ export const CheckList = () => {
             value={CL.fodsa}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -314,6 +397,9 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
           <ChecklistR
             text={"Sales Handoff Sheet (CCBill Only)"}
@@ -321,6 +407,9 @@ export const CheckList = () => {
             value={CL.shs}
             onChange={(e) => {
               handleChange(e);
+            }}
+            onFileChange={(e) => {
+              ImageHandler(e);
             }}
           />
           <ChecklistR
@@ -330,10 +419,13 @@ export const CheckList = () => {
             onChange={(e) => {
               handleChange(e);
             }}
+            onFileChange={(e) => {
+              ImageHandler(e);
+            }}
           />
         </Row>
         <Link>
-          <Button>Update Details</Button>
+          <Button onClick={onSubmit}>Update Details</Button>
         </Link>
       </Form>
     </div>

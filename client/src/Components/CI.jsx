@@ -6,9 +6,9 @@ import { Create } from "../actions/ciAction";
 
 export default function CI() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.ciReducer);
+  const data = useSelector((state) => state.ciReducer.state);
   const id = useSelector((state) => state.ciReducer._id);
-  console.log(id);
+  console.log(data);
   const history = useHistory();
   const [CI, setCI] = React.useState({
     // tpi_rcName: 'Received',
@@ -55,7 +55,7 @@ export default function CI() {
   const onSubmit = (e) => {
     // console.log('clicked')
     e.preventDefault();
-    // console.log(CI);
+    console.log(CI);
     dispatch(Create(CI));
     // dispatch(id(Math.random))
     history.push("/CTI/" + id);

@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   AiOutlineFolderView,
   AiFillEdit,
   AiOutlineReload,
 } from "react-icons/ai";
-import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Col, FormGroup, Input } from "reactstrap";
+// import { Link } from "react-router-dom";
 const ChecklistR = (props) => {
-  const [CL, setCL] = useState({});
-
   const handleClickRead = (e) => {
     console.log("hi from read");
   };
@@ -18,7 +16,6 @@ const ChecklistR = (props) => {
   const handleClickReload = (e) => {
     console.log("hi from reload");
   };
-const {value} = props
   return (
     <React.Fragment>
       <Col md={3}>
@@ -36,7 +33,12 @@ const {value} = props
       </Col>
       <Col md={2}>
         <FormGroup>
-          <Input type="file"></Input>
+          <Input
+            type="file"
+            name="file"
+            value={props.file}
+            onChange={props.onFileChange}
+          ></Input>
         </FormGroup>
       </Col>
       <Col md={1}>
