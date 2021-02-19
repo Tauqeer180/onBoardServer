@@ -106,20 +106,20 @@ export default function MainDashboard() {
               data.map((res, index) => {
                 return (
                   <tr>
-                    <th scope='row'>1</th>
-                    <td style={{ position: 'relative' }}> {res.name} </td>
+                    <th scope="row">1</th>
+                    <td style={{ position: "relative" }}> {res.name} </td>
                     <td>20</td>
                     <td>06</td>
                     <td>14</td>
                     <td>
-                      <button type='submit'>0</button>
+                      <button type="submit">0</button>
                     </td>
                     <td>{res.ci.tpi_aaSolution}</td>
                     <td>
-                      <a href='https://www.google.com' type='submit'>
+                      <a href="https://www.google.com" type="submit">
                         0
                       </a>
-                      <a href={'https://' + res.ci.tci_wUrl}>0</a>
+                      <a href={"https://" + res.ci.tci_wUrl}>0</a>
                     </td>
                     <td>4.95%</td>
                     <td>6.95%</td>
@@ -133,140 +133,140 @@ export default function MainDashboard() {
                     <td>
                       <input
                         onChange={(value) => {
-                          console.log(value.target.checked)
+                          console.log(value.target.checked);
                         }}
                         disabled
-                        checked='true'
+                        checked="true"
                         value={1}
-                        type='checkbox'
-                        class='le-checkbox'
+                        type="checkbox"
+                        class="le-checkbox"
                       />
                     </td>
                     <td>Unlicensed</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>www.abc12.com</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>Andrew Davic</td>
                     <td>100%</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>UK</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>14-03-2025</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>Utility Bill</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>01 January, 2021</td>
                     <td>1 April, 2021</td>
                     <td>3</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>Scott Edmonds</td>
                     <td>0%</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>UK</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>14-03-2025</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>Utility Bill</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>Nil</td>
                     <td>Nill</td>
                     <td>03</td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' value='true' class='le-checkbox' />
+                      <input type="checkbox" value="true" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                     <td>
-                      <input type='checkbox' class='le-checkbox' />
+                      <input type="checkbox" class="le-checkbox" />
                     </td>
                   </tr>
-                )
+                );
               })
             )}
 
