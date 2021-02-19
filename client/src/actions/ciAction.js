@@ -1,15 +1,15 @@
 import axios from 'axios'
-export const Create = (obj) => (dipatch) => {
-  axios
+export const Create = (obj) => async (dipatch) => {
+  await axios
     .post('/api/ci', {
       ci: obj,
       name: obj.tpi_rcName,
     })
     .then((res) => {
-      //   console.log(res.data._id)
+      // console.log(res.data)
       dipatch({
         type: 'CREATE_CI',
-        payload: res.data,
+        payload: res.data.state,
         id: res.data._id,
       })
     })
@@ -25,15 +25,17 @@ export const Get = (obj) => (dispatch) => {
     })
   )
 }
-export const GetOne = (id) => async (dispatch) => {
+export const GetOne = (id) => (dispatch) => {
   dispatch(setLoading())
-  await axios.get('/api/ci/', { id: id }).then(
-    (res) => console.log(res.data)
-    // dispatch({
-    //   type: 'GET_CI',
-    //   payload: res.data,
-    // })
-  )
+  axios.get('/api/ci/' + id, { id: id }).then((res) => {
+    // console.log("from action");
+    // console.log(res.data);
+
+    dispatch({
+      type: 'GET_CI',
+      payload: res.data.ci,
+    })
+  })
 }
 export const Update = (obj, id) => async (dispatch) => {
   try {

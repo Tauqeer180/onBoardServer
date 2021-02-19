@@ -6,81 +6,79 @@ import { Create, Update, GetOne } from '../actions/ciAction'
 
 export default function CI(props) {
   const dispatch = useDispatch()
-  const data = useSelector((state) => state.ciReducer)
+  const { urlid } = useParams()
+
+  const data1 = useSelector((state) => state.ciReducer.state)
+  const isLoading = useSelector((state) => state.ciReducer.isLoading)
   const id = useSelector((state) => state.ciReducer._id)
-  console.log(data)
+  console.log(data1)
+  console.log(isLoading)
   const history = useHistory()
 
-  const { urlid } = useParams()
-  console.log(urlid)
   useEffect(() => {
     urlid ? dispatch(GetOne(urlid)) : console.log('New Will be created')
   }, [urlid])
-  console.log('**********')
-  console.log(data)
+  // console.log('**********')
+  // console.log(isLoading)
 
   const [CI, setCI] = React.useState({
-    // tpi_rcName: 'Received',
-    // tpi_aaSolution: 'Pending',
-    // tpi_ntc: '',
-    // tpi_vtSector: 'Pending',
-    // tpi_date: '',
-    // tpi_brPartner: 'Pending',
-    // tpi_aBdmOwner: 'Pending',
-    // tpi_ccLocation: 'Pending',
-    // tpi_EEADocuments: 'Pending',
-    // tpi_TLoAR: 'Pending',
-    // mci_crAddress: '',
-    // mci_crNumber: '',
-    // mci_ctAddress: '',
-    // mci_vtSector: '',
-    // cci_cName: '',
-    // cci_skypeAddress: '',
-    // cci_mNumber: '',
-    // cci_lNumber: '',
-    // cci_otpMNumber: '',
-    // tci_crAddress: '',
-    // tci_crNumber: '',
-    // tci_ctAddress: '',
-    // tci_wUrl: '',
-    // cci_2_cName: '',
-    // cci_2_Position: '',
-    // cci_2_mNumber: '',
-    // cci_2_lNumber: '',
-    // cci_2_otpMNumber: '',
-    // cci_2_skypeAddress: '',
+    tpi_rcName: 'Pending',
+    tpi_aaSolution: '',
+    tpi_ntc: '',
+    tpi_vtSector: '',
+    tpi_date: '',
+    tpi_brPartner: '',
+    tpi_aBdmOwner: '',
+    tpi_ccLocation: '',
+    tpi_EEADocuments: '',
+    tpi_TLoAR: '',
+    mci_crAddress: '',
+    mci_crNumber: '',
+    mci_ctAddress: '',
+    mci_vtSector: '',
+    cci_cName: '',
+    cci_skypeAddress: '',
+    cci_mNumber: '',
+    cci_lNumber: '',
+    cci_otpMNumber: '',
+    tci_crAddress: '',
+    tci_crNumber: '',
+    tci_ctAddress: '',
+    tci_wUrl: '',
+    cci_2_cName: '',
+    cci_2_Position: '',
+    cci_2_mNumber: '',
+    cci_2_lNumber: '',
+    cci_2_otpMNumber: '',
+    cci_2_skypeAddress: '',
   })
   useEffect(() => {
-    setCI(data)
-  }, [data])
-  // console.log(CI)
+    setCI(data1)
+  }, [data1])
   function handleInput(evt) {
     setCI({
       ...CI,
       [evt.target.name]: evt.target.value,
     })
-    console.log(CI)
   }
-
+  console.log(CI)
   const onSubmit = (e) => {
-    // console.log('clicked')
     e.preventDefault()
-    // console.log(CI);
+    console.log(CI)
     dispatch(Create(CI))
-    // dispatch(id(Math.random))
+
     history.push('/CTI')
-    // setState({ name: "", email: "", rollno: "" });
   }
   const onUpdateSubmit = (e) => {
-    // // console.log('clicked')
     // e.preventDefault()
-    // // console.log(CI);
     // dispatch(Update(CI))
     // // dispatch(id(Math.random))
     // history.push('/CTI/' + urlid)
     // setState({ name: "", email: "", rollno: "" });
   }
-
+  // return isLoading && urlid ? (
+  //   <h1>Loading</h1>
+  // ) :
   return (
     <div className='mt-4 mb-5 container'>
       <div>

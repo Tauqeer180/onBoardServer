@@ -9,7 +9,7 @@ import { Create } from '../actions/ctiAction'
 const CTI = ({ Done, completed, pending }) => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const data = useSelector((state) => state.ctiReducer)
+  const data = useSelector((state) => state.clReducer)
   const id = useSelector((state) => state.ciReducer.id)
   console.log(id)
   const [CTI, setCTI] = React.useState({
