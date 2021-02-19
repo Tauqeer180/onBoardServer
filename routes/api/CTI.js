@@ -32,7 +32,7 @@ router.route('/cti').get((req, res) => {
 
 // Get Single CTI
 router.route('/cti/:id').get((req, res) => {
-  CTISchema.findById(req.params.id, (error, data) => {
+  CTISchema.findById(req.body.id, (error, data) => {
     if (error) {
       return next(error)
     } else {

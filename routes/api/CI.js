@@ -44,6 +44,17 @@ router.post('/ci', (req, res, next) => {
 //     });
 // });
 
+// Get Single CI
+router.get('/ci/:id', (req, res) => {
+  CISchema.findOne({_id: req.body.id}, (error, data) => {
+    if (error) {
+      return next('error')
+    } else {
+      res.json(data)
+    }
+  })
+})
+
 // READ CIs
 router.get('/ci', (req, res) => {
   CISchema.find((error, data) => {
@@ -56,19 +67,8 @@ router.get('/ci', (req, res) => {
   })
 })
 
-// Get Single CI
-router.route('/CI/:id').get((req, res) => {
-  CISchema.findById(req.params.id, (error, data) => {
-    if (error) {
-      return next('error')
-    } else {
-      res.json(data)
-    }
-  })
-})
-
 // Update CI
-router.route('/update-CI/:id').put((req, res, next) => {
+router.route('/CI/:id').put((req, res, next) => {
   CISchema.findByIdAndUpdate(
     req.params.id,
     {
@@ -87,7 +87,7 @@ router.route('/update-CI/:id').put((req, res, next) => {
 })
 
 // Delete CI
-router.route('/delete-CI/:id').delete((req, res, next) => {
+router.route('/CI/:id').delete((req, res, next) => {
   CISchema.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       return next(error)
