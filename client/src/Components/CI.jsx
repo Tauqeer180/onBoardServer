@@ -9,10 +9,10 @@ export default function CI(props) {
   const data = useSelector((state) => state.ciReducer)
   const id = useSelector((state) => state.ciReducer._id)
   console.log(data)
-  const { urlid } = useParams()
-  console.log(urlid)
   const history = useHistory()
 
+  const { urlid } = useParams()
+  console.log(urlid)
   useEffect(() => {
     urlid ? dispatch(GetOne(urlid)) : console.log('New Will be created')
   }, [urlid])

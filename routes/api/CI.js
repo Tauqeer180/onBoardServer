@@ -46,7 +46,7 @@ router.post('/ci', (req, res, next) => {
 
 // Get Single CI
 router.get('/ci/:id', (req, res) => {
-  CISchema.findOne({_id: req.body.id}, (error, data) => {
+  CISchema.findById({ _id: req.body.id }, (error, data) => {
     if (error) {
       return next('error')
     } else {
