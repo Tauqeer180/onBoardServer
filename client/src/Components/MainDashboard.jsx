@@ -18,9 +18,9 @@ export default function MainDashboard() {
   console.log(isLoading)
   console.log(data)
   return (
+    isLoading?        <h1>Loading</h1>:
     <div className='container-fluid'>
       <div class='table-responsive mt-5'>
-        <h1>{isLoading}</h1>
         <table class='table table-striped'>
           <thead>
             <tr>
