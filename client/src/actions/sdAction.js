@@ -18,3 +18,11 @@ catch (error) {
     })
 }
 }
+export const GetOne = (id) => async (dispatch) => {
+  await axios.get("/api/ci/" + id, { id: id }).then((res) => {
+    dispatch({
+      type: "GET_SD",
+      payload: res.data.sd,
+    });
+  });
+};

@@ -1,21 +1,28 @@
 const initialState = {
-  cti_fcaForm: "Pending",
-  cti_bInformation: "Pending",
-  cti_otAgreement: "",
-  cti_hwUrl: "Received",
-  cti_wCompliance: "",
-  cti_wUrl_proofDomain: "Pending",
-  cti_osChart: "Pending",
-  cti_bPlan: "Pending",
+  state: {
+    cti_fcaForm: "Pending",
+    cti_bInformation: "Pending",
+    cti_otAgreement: "",
+    cti_hwUrl: "Received",
+    cti_wCompliance: "",
+    cti_wUrl_proofDomain: "Pending",
+    cti_osChart: "Pending",
+    cti_bPlan: "Pending",
+  },
 };
 export const ctiReducer = (state = initialState, action) => {
-  switch (action.payload) {
+  switch (action.type) {
     case "CREATE_CTI":
       return {
         ...state,
         state: action.payload,
       };
-      break;
+
+    case "GET_CTI":
+      return {
+        ...state,
+        state: action.payload,
+      };
 
     default:
       return state;

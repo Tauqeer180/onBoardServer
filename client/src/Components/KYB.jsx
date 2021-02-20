@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Row, Form, FormGroup, Label, Button, Input } from "reactstrap";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { Create } from "../actions/kybAction";
+import { Create, GetOne } from "../actions/kybAction";
 
 export default function KYB() {
   const dispatch = useDispatch();
   const { urlid } = useParams();
   const history = useHistory();
-  const data = useSelector((state) => state.kybReducer);
+  const data = useSelector((state) => state.kybReducer.state);
   const id = useSelector((state) => state.ciReducer.id);
   console.log(id);
   const [KYB, setKYB] = useState({
@@ -19,7 +19,9 @@ export default function KYB() {
     // kyb_scs: 'Pending',
     // kyb_ccre: 'Pending',
   });
-
+  useEffect(() => {
+    urlid ? dispatch(GetOne(urlid)) : console.log("creating");
+  }, [urlid]);
   console.log(KYB);
   function handleInput(evt) {
     console.log(KYB);

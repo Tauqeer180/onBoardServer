@@ -11,6 +11,7 @@ export default function CI(props) {
   const data1 = useSelector((state) => state.ciReducer.state);
   const isLoading = useSelector((state) => state.ciReducer.isLoading);
   const id = useSelector((state) => state.ciReducer._id);
+  console.log(data1);
   console.log(urlid);
   console.log(isLoading);
   const history = useHistory();
@@ -99,11 +100,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="certificate">Registered Company Name: </Label>
                 <Input
-                  className={
-                    CI.tpi_rcName === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   onChange={handleInput}
                   required={false}
                   type="text"
@@ -118,11 +115,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="memo">Allocated Acquirer / Solution:</Label>
                 <select
-                  className={
-                    CI.tpi_aaSolution === "Pending"
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="custom-select"
                   id="1"
                   name="tpi_aaSolution"
                   onChange={handleInput}
@@ -130,7 +123,7 @@ export default function CI(props) {
                   <option selected value="Pending">
                     Pending
                   </option>
-                  <option value="Received">Received</option>
+                  <option value="Received">CCBIL</option>
                 </select>
               </FormGroup>
             </Col>
@@ -139,11 +132,7 @@ export default function CI(props) {
                 <Label for="NTC">Trading / New To Cards (NTC):</Label>
 
                 <Input
-                  className={
-                    CI.tpi_ntc === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   onChange={handleInput}
                   required={false}
                   type="text"
@@ -156,31 +145,23 @@ export default function CI(props) {
             <Col md={6}>
               <FormGroup>
                 <Label for="shareRegister">Vertical / Trading Sector: :</Label>
-                <select
-                  className={
-                    CI.tpi_vtSector === "Pending"
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
-                  value={CI.tpi_vtSector}
-                  id="1"
-                  name="tpi_vtSector"
+                <Input
+                  className="cusrom"
                   onChange={handleInput}
-                >
-                  <option value="Pending">Pending</option>
-                  <option value="Received">Received</option>
-                </select>
+                  required={false}
+                  type="text"
+                  value={CI.tpi_vtSector}
+                  name="tpi_vtSector"
+                  id="Name"
+                  placeholder=" Trading Sector"
+                ></Input>
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
                 <Label for="shareCertificate">Application Boarded Date:</Label>
                 <Input
-                  className={
-                    CI.tpi_date === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.tpi_date}
                   onChange={handleInput}
                   type="date"
@@ -193,73 +174,53 @@ export default function CI(props) {
             <Col md={6}>
               <FormGroup>
                 <Label for="CCR">Business / Referral Partner:</Label>
-                <select
-                  className={
-                    CI.tpi_brPartner === "Pending"
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
-                  value={CI.tpi_brPartner}
-                  id="1"
-                  name="tpi_brPartner"
+                <Input
+                  className="cusrom"
                   onChange={handleInput}
-                >
-                  <option selected value="Pending">
-                    Pending
-                  </option>
-                  <option value="Received">Received</option>
-                </select>
+                  required={false}
+                  type="text"
+                  value={CI.tpi_brPartner}
+                  name="tpi_brPartner"
+                  id="Name"
+                  placeholder="Referral Partner"
+                ></Input>
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
                 <Label for="CCR">Assigned - BDM / Owner:</Label>
-                <select
-                  className={
-                    CI.tpi_aBdmOwner === "Pending"
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
-                  id="1"
-                  name="tpi_aBdmOwner"
-                  value={CI.tpi_aBdmOwner}
+                <Input
+                  className="cusrom"
                   onChange={handleInput}
-                >
-                  <option selected value="Pending">
-                    Pending
-                  </option>
-                  <option value="Received">Received</option>
-                </select>
+                  required={false}
+                  type="text"
+                  value={CI.tpi_aBdmOwner}
+                  name="tpi_aBdmOwner"
+                  id="Name"
+                  placeholder="Assigned - BDM"
+                ></Input>
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
                 <Label for="CCR">Compliance Country Location:</Label>
-                <select
-                  className={
-                    CI.tpi_ccLocation === "Pending"
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
-                  value={CI.tpi_ccLocation}
-                  id="1"
-                  name="tpi_ccLocation"
+                <Input
+                  className="cusrom"
                   onChange={handleInput}
-                >
-                  <option value="Pending"> Pending </option>
-                  <option value="Received">Received</option>
-                </select>
+                  required={false}
+                  type="text"
+                  value={CI.tpi_ccLocation}
+                  name="tpi_ccLocation"
+                  id="Name"
+                  placeholder="Compliance Location"
+                ></Input>
               </FormGroup>
             </Col>
             <Col md={6}>
               <FormGroup>
                 <Label for="CCR">EEA Documents:</Label>
                 <select
-                  className={
-                    CI.tpi_EEADocuments === "Pending"
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="custom-select"
                   value={CI.tpi_EEADocuments}
                   id="1"
                   name="tpi_EEADocuments"
@@ -274,18 +235,14 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="CCR">Trading License or Agreements Required:</Label>
                 <select
-                  className={
-                    CI.tpi_TLoAR === "Pending"
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="custom-select"
                   value={CI.tpi_TLoAR}
                   id="1"
                   name="tpi_TLoAR"
                   onChange={handleInput}
                 >
-                  <option value="Pending"> Pending </option>
-                  <option value="Received">Received</option>
+                  <option>Licenced </option>
+                  <option>unlicenced</option>
                 </select>
               </FormGroup>
             </Col>
@@ -307,11 +264,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="mci_crAddress">Company Registered Address:</Label>
                 <Input
-                  className={
-                    CI.mci_crAddress === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.mci_crAddress}
                   name="mci_crAddress"
                   onChange={handleInput}
@@ -326,11 +279,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Company Registered Number: </Label>
                 <Input
-                  className={
-                    CI.mci_crNumber === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.mci_crNumber}
                   name="mci_crNumber"
                   onChange={handleInput}
@@ -347,11 +296,7 @@ export default function CI(props) {
                   Company Trading Address (If Applicable):
                 </Label>
                 <Input
-                  className={
-                    CI.mci_ctAddress === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.mci_ctAddress}
                   name="mci_ctAddress"
                   onChange={handleInput}
@@ -366,11 +311,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Vertical / Trading Sector: </Label>
                 <Input
-                  className={
-                    CI.mci_vtSector === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.mci_vtSector}
                   name="mci_vtSector"
                   onChange={handleInput}
@@ -397,11 +338,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Contact Name:</Label>
                 <Input
-                  className={
-                    CI.cci_cName === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_cName}
                   name="cci_cName"
                   onChange={handleInput}
@@ -416,11 +353,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Skype Address:</Label>
                 <Input
-                  className={
-                    CI.cci_skypeAddress === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_skypeAddress}
                   name="cci_skypeAddress"
                   onChange={handleInput}
@@ -436,11 +369,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Mobile Number: </Label>
                 <Input
-                  className={
-                    CI.cci_mNumber === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_mNumber}
                   name="cci_mNumber"
                   onChange={handleInput}
@@ -455,11 +384,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Landline Number: </Label>
                 <Input
-                  className={
-                    CI.cci_lNumber === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_lNumber}
                   name="cci_lNumber"
                   onChange={handleInput}
@@ -474,11 +399,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">OTP Mobile Number (IBAN Only): </Label>
                 <Input
-                  className={
-                    CI.cci_otpMNumber === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_otpMNumber}
                   name="cci_otpMNumber"
                   onChange={handleInput}
@@ -510,11 +431,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Company Registered Address:</Label>
                 <Input
-                  className={
-                    CI.tci_crAddress === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.tci_crAddress}
                   name="tci_crAddress"
                   onChange={handleInput}
@@ -529,11 +446,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Company Registered Number: </Label>
                 <Input
-                  className={
-                    CI.tci_crNumber === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.tci_crNumber}
                   name="tci_crNumber"
                   onChange={handleInput}
@@ -550,11 +463,7 @@ export default function CI(props) {
                   Company Trading Address (If Applicable):
                 </Label>
                 <Input
-                  className={
-                    CI.tci_ctAddress === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.tci_ctAddress}
                   name="tci_ctAddress"
                   onChange={handleInput}
@@ -569,11 +478,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Website: </Label>
                 <Input
-                  className={
-                    CI.tci_wUrl === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.tci_wUrl}
                   name="tci_wUrl"
                   onChange={handleInput}
@@ -600,11 +505,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Contact Name:</Label>
                 <Input
-                  className={
-                    CI.cci_2_cName === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_2_cName}
                   name="cci_2_cName"
                   onChange={handleInput}
@@ -619,11 +520,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Position:</Label>
                 <Input
-                  className={
-                    CI.cci_2_Position === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_2_Position}
                   name="cci_2_Position"
                   onChange={handleInput}
@@ -639,11 +536,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Mobile Number: </Label>
                 <Input
-                  className={
-                    CI.cci_2_mNumber === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_2_mNumber}
                   name="cci_2_mNumber"
                   onChange={handleInput}
@@ -658,11 +551,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Landline Number: </Label>
                 <Input
-                  className={
-                    CI.cci_2_lNumber === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_2_lNumber}
                   name="cci_2_lNumber"
                   onChange={handleInput}
@@ -677,11 +566,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">OTP Mobile Number (IBAN Only): </Label>
                 <Input
-                  className={
-                    CI.cci_2_otpMNumber === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_2_otpMNumber}
                   name="cci_2_otpMNumber"
                   onChange={handleInput}
@@ -696,11 +581,7 @@ export default function CI(props) {
               <FormGroup>
                 <Label for="address">Skype Address:</Label>
                 <Input
-                  className={
-                    CI.cci_2_skypeAddress === ""
-                      ? "border-red custom-select"
-                      : "custom-select"
-                  }
+                  className="cusrom"
                   value={CI.cci_2_skypeAddress}
                   name="cci_2_skypeAddress"
                   onChange={handleInput}

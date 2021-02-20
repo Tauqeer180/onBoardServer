@@ -129,24 +129,13 @@ export default function MainDashboard() {
                     <td>6.95%</td>
                     <td>18 February, 2021</td>
                     <td>8</td>
-                    <td>Trading</td>
-                    <td>Generic pills</td>
-                    <td>Luke</td>
-                    <td>Nelson</td>
-                    <td>Bulgaria</td>
-                    <td>
-                      <input
-                        onChange={(value) => {
-                          console.log(value.target.checked);
-                        }}
-                        disabled
-                        checked="true"
-                        value={1}
-                        type="checkbox"
-                        class="le-checkbox"
-                      />
-                    </td>
-                    <td>Unlicensed</td>
+                    <td>{res.ci.tpi_ntc}</td>
+                    <td>{res.ci.tpi_vtSector}</td>
+                    <td>{res.ci.tpi_brPartner}</td>
+                    <td>{res.ci.tpi_aBdmOwner}</td>
+                    <td>{res.ci.tpi_ccLocation}</td>
+                    <td>{res.ci.tpi_EEADocuments}</td>
+                    <td>{res.ci.tpi_TLoAR}</td>
                     <td>{res.cti.cti_fcaForm}</td>
                     <td>{res.cti.cti_bInformation}</td>
                     <td>{res.cti.cti_otAgreement}</td>

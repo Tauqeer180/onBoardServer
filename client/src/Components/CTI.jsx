@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Col, Row, Form, FormGroup, Label, Button, Input } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { Create } from "../actions/ctiAction";
+import { Create, GetOne } from "../actions/ctiAction";
 
 // import { completed, pending } from '../actions/completedAction'
 
@@ -10,10 +10,15 @@ const CTI = ({ Done, completed, pending }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { urlid } = useParams();
-  console.log(urlid);
-  const data = useSelector((state) => state.ctiReducer);
+  // console.log(urlid);
+  const data = useSelector((state) => state.ctiReducer.state);
   const id = useSelector((state) => state.ciReducer.id);
-  console.log(id);
+  // console.log(data);
+  // console.log(id);
+  useEffect(() => {
+    urlid ? dispatch(GetOne(urlid)) : console.log("creating");
+  }, [urlid]);
+
   const [CTI, setCTI] = React.useState({
     // cti_fcaForm: 'Pending',
     // cti_bInformation: 'Pending',
@@ -31,12 +36,14 @@ const CTI = ({ Done, completed, pending }) => {
       [evt.target.name]: evt.target.value,
     });
   }
+  console.log(CTI);
+
   useEffect(() => {
     setCTI(data);
   }, [data]);
   const onSubmit = (e) => {
     console.log(CTI);
-    dispatch(Create(CTI , id));
+    dispatch(Create(CTI, id));
 
     history.push("/KYC");
   };

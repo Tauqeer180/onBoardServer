@@ -6,14 +6,18 @@ import countryList from "react-select-country-list";
 import Select from "react-select";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { Received, pending } from "../actions/completedAction";
-import { Create } from "../actions/kycAction";
+import { Create, GetOne } from "../actions/kycAction";
 const KYC = ({ Done, Received, pending }) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const data = useSelector((state) => state.kycReducer);
+  const data = useSelector((state) => state.kycReducer.state);
   const id = useSelector((state) => state.ciReducer.id);
-  console.log(id);
   const { urlid } = useParams();
+  console.log(id);
+  useEffect(() => {
+    urlid ? dispatch(GetOne(urlid)) : console.log("creating");
+  }, [urlid]);
+
   // console.log(id);
   // console.log(data)
   const [KYC, setKYC] = useState({
@@ -42,7 +46,7 @@ const KYC = ({ Done, Received, pending }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(KYC);
-    dispatch(Create(KYC,id));
+    dispatch(Create(KYC, id));
 
     history.push("/KYB");
   };
@@ -59,10 +63,10 @@ const KYC = ({ Done, Received, pending }) => {
   const options = useMemo(() => countryList().getData(), []);
   const [color, setColor] = useState("none");
 
-  const changeHandler = (value) => {
-    console.log(value);
-    setValue(value);
-  };
+  // const changeHandler = (value) => {
+  //   console.log(value.label);
+  //   setKYC({ kyc_nationality: value.label });
+  // };
   const onChangeStartDAte = (e) => {
     setStartDate(e.target.value);
   };
@@ -86,10 +90,9 @@ const KYC = ({ Done, Received, pending }) => {
       return days;
     }
   }, [KYC.kyc_ExpiryDate]);
-  //End
-  const fun = (e) => {
-    console.log(e.target.value);
-  };
+
+  console.log(KYC.kyc_nationality);
+
   return (
     <div className="container">
       <div>
@@ -202,17 +205,16 @@ const KYC = ({ Done, Received, pending }) => {
           <Col md={6}>
             <FormGroup>
               <Label for="Nationality">Country/Nationality</Label>
-              <Select
-                className={
-                  KYC.kyc_nationality === ""
-                    ? "border-red custom-select"
-                    : "custom-select"
-                }
+              <Input
+                className="cusrom"
+                onChange={handleInput}
+                required={false}
+                type="text"
                 value={KYC.kyc_nationality}
                 name="kyc_nationality"
-                onChange={handleInput}
-                options={options}
-              />
+                id="Name"
+                placeholder="Company Name"
+              ></Input>
             </FormGroup>
           </Col>
           <Col md={6}>
