@@ -6,6 +6,7 @@ import { Get } from "../actions/ciAction";
 
 export default function MainDashboard() {
   const history = useHistory();
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(Get());
@@ -18,7 +19,7 @@ export default function MainDashboard() {
   console.log(isLoading);
   console.log(data);
   return isLoading ? (
-    <h1>Loading</h1>
+    <h1 className="text-center">Loading</h1>
   ) : (
     <div className="container-fluid">
       <div class="table-responsive mt-5">
@@ -102,7 +103,7 @@ export default function MainDashboard() {
           </thead>
           <tbody>
             {isLoading === true ? (
-              <h1>Wait Bhai</h1>
+              <h1> </h1>
             ) : (
               data.map((res, index) => {
                 return (

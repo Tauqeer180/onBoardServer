@@ -1,6 +1,6 @@
 const initialState = {
   state: {
-    tpi_rcName: "hahah",
+    tpi_rcName: "",
     tpi_aaSolution: "Pending",
     tpi_ntc: "Pending",
     tpi_vtSector: "Pending",

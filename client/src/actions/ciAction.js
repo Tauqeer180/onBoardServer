@@ -16,19 +16,19 @@ export const Create = (obj) => async (dipatch) => {
     });
 };
 
-export const Get = (obj) => (dispatch) => {
+export const Get = (obj) => async(dispatch) => {
   dispatch(setLoading());
 
-  axios.get("/api/ci").then((res) =>
+ await axios.get("/api/ci").then((res) =>
     dispatch({
       type: "GET_CI",
       payload: res.data,
     })
   );
 };
-export const GetOne = (id) => (dispatch) => {
+export const GetOne = (id) => async(dispatch) => {
   dispatch(setLoading());
-  axios.get("/api/ci/" + id, { id: id }).then((res) => {
+  await axios.get("/api/ci/" + id, { id: id }).then((res) => {
     // console.log("from action");
     // console.log(res.data);
 
@@ -41,7 +41,7 @@ export const GetOne = (id) => (dispatch) => {
 export const Update = (obj, id) => async (dispatch) => {
   try {
     let url = "/api/cti";
-    axios.put(url, { cti: obj, id: id }).then(
+   await axios.put(url, { cti: obj, id: id }).then(
       (res) =>
         dispatch({
           type: "CREATE_CTI",
@@ -59,7 +59,7 @@ export const Update = (obj, id) => async (dispatch) => {
 export const UpdateOne = (obj, urlid) => async (dispatch) => {
   try {
     let url = "/api/ci";
-    axios.put(url, { ci: obj, id: urlid }).then(
+   await axios.put(url, { ci: obj, id: urlid }).then(
       (res) =>
         dispatch({
           type: "Update_CI",

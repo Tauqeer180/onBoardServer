@@ -23,7 +23,7 @@ export default function CI(props) {
   // console.log(isLoading)
 
   const [CI, setCI] = React.useState({
-    tpi_rcName: "Pending",
+    tpi_rcName: " ",
     tpi_aaSolution: "",
     tpi_ntc: "",
     tpi_vtSector: "",
@@ -62,6 +62,9 @@ export default function CI(props) {
       [evt.target.name]: evt.target.value,
     });
   }
+  useEffect(()=>{
+setCI(CI)
+  },[CI])
   console.log(CI);
   const onSubmit = (e) => {
     e.preventDefault();
@@ -102,7 +105,7 @@ export default function CI(props) {
                 <Input
                   className="cusrom"
                   onChange={handleInput}
-                  required={false}
+                  required={true}
                   type="text"
                   value={CI.tpi_rcName}
                   name="tpi_rcName"
