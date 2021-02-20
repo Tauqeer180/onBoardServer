@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 let path = require("path");
+const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-
+dotenv.config();
 const ci = require("./routes/api/CI");
 const cti = require("./routes/api/CTI");
 const cl = require("./routes/api/CL");
@@ -32,8 +33,15 @@ app.use("/api", kyc);
 app.use("/api", kyb);
 app.use("/api", sd);
 app.use("/api", uploadRoute);
-
 app.use("/api/upload", express.static(path.join(__dirname, "/uploads")));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client/build/index.html"))
+  );
+}
+console.log(process.env.NODE_ENV);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server Started on port ${port}`));
